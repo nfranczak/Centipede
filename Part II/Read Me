@@ -1,1 +1,14 @@
-Part II is about ...
+Part II contains all the relevant code to contact the centipede and feed it inputs along with an RNN from which the cenitpede
+can learn to play any composition from. Feeding the RNN because there are an infinite amount of combinations that can be
+produced in terms of the attack on a note and how long it should sound for, a reinforcement neural network appropriately guages
+how to correctly play a given note.The model simply outputs how fast a motor, which governs the movement of a finger, should 
+actuate and how long it should hold the finger in a given position, which affects how long the note sounds for. The entire 
+array passes through the model to get the appropriate parameters. These parameters are then fed to the centipede and a song is 
+played.
+
+* Note the final code for part II is still not finished so I will wait to 'publish' it*
+For more information on the current progress of the code please contact me on my email (nfranczak@wesleyan.edu) and I will
+share a copy of the current code along with explanations :)
+
+
+

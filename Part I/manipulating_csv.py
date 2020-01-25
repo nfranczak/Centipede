@@ -24,7 +24,3 @@ with open('liz copy.csv', 'r') as csv_file:
                 writer.writerow(row)
             else:
                 pass
-
-with open('new liz copy.csv', 'r') as manipulated_csv_file:
-    for row in manipulated_csv_file:
-        print row

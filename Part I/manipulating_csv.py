@@ -3,7 +3,7 @@ import operator
 import os
 
 with open('liz copy.csv', 'r') as csv_file:
-    with open('new lis copy.csv', 'w') as manipulated_csv_file:
+    with open('new liz copy.csv', 'w') as manipulated_csv_file:
         csv_reader = csv.reader(csv_file, delimiter = ',')
 
         sort = sorted(csv_reader, key = lambda row: int(row[1]))

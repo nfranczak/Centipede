@@ -28,8 +28,3 @@ with open('liz copy.csv', 'r') as csv_file:
 with open('new liz copy.csv', 'r') as manipulated_csv_file:
     for row in manipulated_csv_file:
         print row
-
-
-#os.remove("liz copy.csv")
-#print("File Removed!")
-# I NEED TO ADD A WAY TO ROUTE ALL THE FILES I COULD POSSIBLY WANT AND THEN ROUTE ALL THE FILES OUT

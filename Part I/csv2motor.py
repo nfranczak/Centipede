@@ -73,15 +73,11 @@ def instructions (midi_time, motor, attack, epsilon, tempo_start):
 with open('new chad.csv', 'r') as csv_file:
     for row in csv_file:
         indicies = list(filter(lambda x: row[x] == ',', range(len(row))))
-        # print row
-        # print indicies
         if ' Header' in row:
-            alpha = row[(indicies[4]+1):len(row)]
-            #alpha = row[(indicies[4]+1):indicies[5]] #the number of clock pulses per quarter note
+            alpha = row[(indicies[4]+1):len(row)] #the number of clock pulses per quarter note
 
         elif ' Tempo' in row:
-            beta = row[(indicies[2]+1):len(row)]
-            #beta = row[(indicies[2]+1):indicies[3]] #tempo is specified as the number of microseconds per quarter note
+            beta = row[(indicies[2]+1):len(row)] #tempo is specified as the number of microseconds per quarter note
             beta1 = int(beta) / 1000000. #the number of seconds per quarter note
             epsilon = float(beta1) / float(alpha) #how long each clock pulse is, in seconds
             tempo_start = row[(indicies[0] + 1):indicies[1]]
@@ -119,7 +115,3 @@ for row in f:
 for row in f:
     if 'tempo' not in row:
         g.append(row)
-
-
-for i in g:
-    print i

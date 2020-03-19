@@ -1,14 +1,28 @@
-Part II contains all the relevant code to contact the centipede and feed it inputs along with an RNN from which the cenitpede
-can learn to play any composition from. Feeding the RNN because there are an infinite amount of combinations that can be
-produced in terms of the attack on a note and how long it should sound for, a reinforcement neural network appropriately guages
-how to correctly play a given note.The model simply outputs how fast a motor, which governs the movement of a finger, should 
-actuate and how long it should hold the finger in a given position, which affects how long the note sounds for. The entire 
-array passes through the model to get the appropriate parameters. These parameters are then fed to the centipede and a song is 
-played.
+Part II contains all the relevant code to 'contact' the centipede and feed it inputs given from csv2motor.py, along with a
+model that is able to interpret the inputs and output the appropriate motor velocity and stall. The intuition for the model is
+as follows. 
+Let a be a function such that a: attack -> velocity
+Let b         ''              b: release -> stall
+Because both of these functions are well defined, continuous, and discrete we then can say that:
+let c be a function such that c: (attack x release) -> (velocity x stall)
+We see that c too is well defined, continuous, and discrete.
+The model will measure the soundwave that is produced by c for a given input. Specifically, the amplitude and duration of the 
+produced soundwave will be measured. The loss calculated from the difference between desired and actual amplitude will modify
+function a, similarly the difference between desired and actual duration will modify function b. Thus c will be appropriatelly
+augmented and the model will be able to correctly approximate how to use a motor for any possible note.
 
-* Note the final code for part II is still not finished so I will wait to 'publish' it*
-For more information on the current progress of the code please contact me on my email (nfranczak@wesleyan.edu) and I will
-share a copy of the current code along with explanations :)
+With function c being correctly defined we then can construct function d such that d: (attack x release x note) -> (velocity x
+stall)
+
+Ultimatelly the entire output of csv2motor.py will pass through the model and it will be able to account for how to properly 
+structure motor usage wrt the time when a note is played.
+-------------------------------------------------------------------------------------------------------------------------------
+* Note general inuition on incorporating spine movement to work in tandem with fingers is in the works
+
+* Note the final code for part II is still not finished so I will wait to 'publish' it
+
+* For more information on the current progress of the code please contact me on my email (nfranczak@wesleyan.edu) and I will
+  share a copy of the current code along with explanations :)
 
 
 

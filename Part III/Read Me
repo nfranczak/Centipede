@@ -1,1 +1,20 @@
-Part III is about ...
+Part III deals with models that enable Bryce to compose music wrt the pattern of a given song, artist, and genre.
+Intuition:
+Think of an onion, and let the top layer of the onion represent the voice that carries an internal dialogue in our heads. The
+conventional understanding of ‘voice’ and ‘dialogue’ implies that the language of this dialogue is fundamentally reliant on the
+use of words, yet this is a misconception. Language, in its most intuitive form, is a method of communication one has developed
+internally i.e. conscious and subconscious internalizations of sensory input. The emotion we feel when a scent is inhaled or the
+goosebumps we get when a song is played are all dialects of the same language. Words serve the function of approximating these
+experiences such that they are tangible to others. Here the top layer merely serves as a translation of these experiences into
+words, so that they all may be understood in simplest terms. Language, then, can be understood as all the experiences a
+conscious human endures. The translation of one ‘dialect’ to another can be understood as relating different modalities of
+experience. A composer writes scores as a way of expressing 'structured' thought.
+
+The model will first interpret a song and find patterns that exist among (singular and sequences) of notes, chords, and
+progressions. This approximation can then be built to envelop an artist and a genre. The set of patterns that exist among songs,
+artists, and genres serves to
+
+
+By having patterns found in songs a model then can be built which begins to assign semantic values to singular and sequences of
+notes, chords, and progressions by findings patterns within patterns infinitely. This would allow for creating a web of
+'experiences' that would allow the program to asymptotically approach 'pure' piano composition. 

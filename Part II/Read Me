@@ -12,7 +12,7 @@ function a, similarly the difference between desired and actual duration will mo
 augmented and the model will be able to correctly approximate how to use a motor for any possible note.
 
 With function c being correctly defined we then can construct function d such that d: (attack x release x note) -> (velocity x
-stall)
+stall x note)
 
 Ultimatelly the entire output of csv2motor.py will pass through the model and it will be able to account for how to properly 
 structure motor usage wrt the time when a note is played.

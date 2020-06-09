@@ -1,28 +1,19 @@
 Part II contains all the relevant code to 'contact' the centipede and feed it inputs given from csv2motor.py, along with a
-model that is able to interpret the inputs and output the appropriate motor velocity and stall. The intuition for the model is
-as follows. 
+model that is able to interpret the inputs and output the appropriate motor velocity and stall.
+The intuition for the model is as follows. 
 Let a be a function such that a: attack -> velocity
 Let b         ''              b: release -> stall
-Because both of these functions are well defined, continuous, and discrete we then can say that:
-let c be a function such that c: (attack x release) -> (velocity x stall)
-We see that c too is well defined, continuous, and discrete.
-The model will measure the soundwave that is produced by c for a given input. Specifically, the amplitude and duration of the 
-produced soundwave will be measured. The loss calculated from the difference between desired and actual amplitude will modify
-function a, similarly the difference between desired and actual duration will modify function b. Thus c will be appropriatelly
-augmented and the model will be able to correctly approximate how to use a motor for any possible note.
+we then can say that:
+c: (attack x release) -> (velocity x stall)
+&
+d: (note x attack x release) -> (motor x velcity x stall
 
-With function c being correctly defined we then can construct function d such that d: (attack x release x note) -> (velocity x
-stall x note)
-
-Ultimatelly the entire output of csv2motor.py will pass through the model and it will be able to account for how to properly 
-structure motor usage wrt the time when a note is played.
--------------------------------------------------------------------------------------------------------------------------------
-* Note general inuition on incorporating spine movement to work in tandem with fingers is in the works
-
-* Note the final code for part II is still not finished so I will wait to 'publish' it
-
-* For more information on the current progress of the code please contact me on my email (nfranczak@wesleyan.edu) and I will
-  share a copy of the current code along with explanations :)
-
-
-
+Training loop:
+input: (attack, release) for a note
+        nn produces a (vel, stall) pair
+       (vel, stall) fed into arduino and is executed by a servo motor
+        produced soundwave is redorded for amplitude and duration
+        loss is measured
+        nn refines itself
+        until the loss is below a certain thershold, lines 13-17 repeat.
+        once the threshold is met, the nn is fed another (a,r)

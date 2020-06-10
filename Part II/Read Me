@@ -6,7 +6,7 @@ Let b         ''              b: release -> stall
 we then can say that:
 c: (attack x release) -> (velocity x stall)
 &
-d: (note x attack x release) -> (motor x velcity x stall
+d: (note x attack x release) -> (motor x velcity x stall)
 
 Training loop:
 input: (attack, release) for a note

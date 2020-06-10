@@ -17,3 +17,5 @@ input: (attack, release) for a note
         nn refines itself
         until the loss is below a certain thershold, lines 13-17 repeat.
         once the threshold is met, the nn is fed another (a,r)
+                the (attack, release, note) is then added to an R3 graph
+                    (velocity, stall, motor)    ''           a different R3 graph

@@ -11,7 +11,7 @@ d: (note x attack x release) -> (motor x velcity x stall)
 Training loop:
 input: (attack, release) for a note
         nn produces a (vel, stall) pair
-       (vel, stall) fed into arduino and is executed by a servo motor
+       (vel, stall) fed into arduino and executed by a servo motor
         produced soundwave is redorded for amplitude and duration
         loss is measured
         nn refines itself

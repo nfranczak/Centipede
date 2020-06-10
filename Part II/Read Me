@@ -7,15 +7,15 @@ we then can say that:
 c: (attack x release) -> (velocity x stall)
 &
 d: (note x attack x release) -> (motor x velcity x stall)
-
+-------------------------------------------------------------------------------------------------------------------------------
+Input: (attack, release) for a note
 Training loop:
-input: (attack, release) for a note
         nn produces a (vel, stall) pair
        (vel, stall) fed into arduino and executed by a servo motor
         produced soundwave is redorded for amplitude and duration
         loss is measured
         nn refines itself
-        until the loss is below a certain thershold, lines 13-17 repeat.
-        once the threshold is met, the nn is fed another (a,r)
-                the (attack, release, note) is then added to an R3 graph
-                    (velocity, stall, motor)    ''           a different R3 graph
+        
+until the loss is below a certain thershold, lines 13-17 repeat.
+once the threshold is met, the (attack, release, note) is then added to an R3 graph, &
+                           the (velocity, stall, motor)    ''           a different R3 graph.

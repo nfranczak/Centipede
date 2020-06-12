@@ -115,3 +115,6 @@ for row in f:
 for row in f:
     if 'tempo' not in row:
         g.append(row)
+
+def call():
+    return g

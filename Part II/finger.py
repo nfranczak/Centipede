@@ -1,8 +1,6 @@
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers, models
 import numpy as np
 import ardu_comm
 import csv2motor
@@ -15,7 +13,6 @@ for i in csv2motor.call():
     a = i[1] # attack
     r = i[2] # release
     on = True
-    print(i)
 
     attack = tf.Variable(np.random.uniform(0, 3), trainable = True, name = 'attack')
     release = tf.Variable(np.random.uniform(0, 10), trainable = True, name = 'release')

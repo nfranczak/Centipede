@@ -31,12 +31,12 @@ for i in csv2motor.call():
         optimizer.apply_gradients(zip(gradients, [attack, release]))
         if loss < 0.01:
             on = False
-            print('motor: %i with attack: %i and release: %f has been correctly approximated.')
+            print('Motor: %i with attack: %i and release: %f has been correctly approximated.')
             # add (note, attack, release) to database
             # add (motor, velocity, stall) to databse
 
 
-    print('all the inputs of this song have been approximated')
+    print('All the inputs of this song have been approximated.')
     # graph 1: (note, attack, release)
     g = numpy.array(csv2motor.call())
     h = numpy.delete(g, 0, 1) #removes the time
@@ -45,7 +45,7 @@ for i in csv2motor.call():
     all_releases = h[:, 2]
     fig = plt.figure()
     ax = fig.gca(projection = '3d')
-    ax.set_title('Sonate Opus 35 - Frederic Chopin')
+    # ax.set_title('Sonate Opus 35 - Frederic Chopin')
     ax.set_xlabel('motor')
     ax.set_ylabel('release')
     ax.set_zlabel('attack')

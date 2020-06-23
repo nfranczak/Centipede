@@ -1,11 +1,11 @@
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
+import visualizer
 import ardu_comm
 import csv2motor
-import audio
-import numpy
+import lookup
+import audyoo
+import adder
 
 for i in csv2motor.call():
     i.pop(0) # removes midi_time
@@ -19,39 +19,26 @@ for i in csv2motor.call():
 
     def model(attack, a, release, r):
         ardu_comm.call(attack, release) # passes the guess into the ardu
-        amp, dur = audio.call() # collects the produced amplitude and duration
+        amp, dur = audyoo.call() # collects the produced amplitude and duration
         return tf.add(tf.reduce_mean(tf.square(amp - a)), tf.reduce_mean(tf.square(dur - r))) # MSE here
 
     optimizer = tf.optimizers.SGD(learning_rate = 0.1)
 
     while on == True:
-        with tf.GradientTape() as g:
-             loss = model(attack, a, release, r)
-        gradients = g.gradient(loss, [attack, release])
-        optimizer.apply_gradients(zip(gradients, [attack, release]))
-        if loss < 0.01:
-            on = False
-            print('Motor: %i with attack: %i and release: %f has been correctly approximated.')
-            # add (note, attack, release) to database
-            # add (motor, velocity, stall) to databse
+        if lookup.look() == True:
+            pass #make sure pass is working as exepected here
+        else:
+            with tf.GradientTape() as g:
+                 loss = model(attack, a, release, r)
+            gradients = g.gradient(loss, [attack, release])
+            optimizer.apply_gradients(zip(gradients, [attack, release]))
+            if loss < 0.01:
+                on = False
+                print('note: %i with attack: %i and release: %f has been correctly approximated.')
+                adder.append('piano databse.csv', [motor, a, r]) # adds (note, attack, release) to database
+                adder.append('motor databse.csv', [motor, attack, release]) # adds (motor, velocity, stall) to database
 
 
-    print('All the inputs of this song have been approximated.')
-    # graph 1: (note, attack, release)
-    g = numpy.array(csv2motor.call())
-    h = numpy.delete(g, 0, 1) #removes the time
-    all_motors = h[:, 0]
-    all_attacks = h[:, 1]
-    all_releases = h[:, 2]
-    fig = plt.figure()
-    ax = fig.gca(projection = '3d')
-    # ax.set_title('Sonate Opus 35 - Frederic Chopin')
-    ax.set_xlabel('motor')
-    ax.set_ylabel('release')
-    ax.set_zlabel('attack')
-    ax.set_xlim(0, numpy.amax(all_motors))
-    ax.set_ylim(0, int(numpy.amax(all_releases)) + 1)
-    ax.set_zlim(0, numpy.amax(all_attacks))
-    ax.scatter(all_motors, all_releases, all_attacks, c = all_attacks, cmap = 'viridis', linewidth=0.5);
-    plt.show()
-    # graph 2: (motor, velocity, stall)
+print('all the inputs of this song have been approximated')
+visualizer.view_piano()
+visualizer.view_centi()

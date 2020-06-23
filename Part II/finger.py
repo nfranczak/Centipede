@@ -34,7 +34,7 @@ for i in csv2motor.call():
             optimizer.apply_gradients(zip(gradients, [attack, release]))
             if loss < 0.01:
                 on = False
-                print('note: %i with attack: %i and release: %f has been correctly approximated.')
+                print('note: %i with attack: %i and release: %f has been correctly approximated.' % (motor, a, r))
                 adder.append('piano databse.csv', [motor, a, r]) # adds (note, attack, release) to database
                 adder.append('motor databse.csv', [motor, attack, release]) # adds (motor, velocity, stall) to database
 

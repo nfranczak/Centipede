@@ -6,7 +6,7 @@ First the model checks if the given (note, attack, release) pair have already be
 If not the model predicts a value for the corresponding motor's velocity and stall
 * velocity corresponds to the attack *
 * stall corresponds to the release *
-The predicted (velcoity, stall) get fed to the centipede with the ardu_comm.py program
+The predicted (velocity, stall) get fed to the centipede with the ardu_comm.py program
 At the same time the audyoo.py program is ran
 The audyoo.py program records the attack and release that the velocity and stall produced
 The loss is calculated between the produced (attack, release) and the desired (attack, release)

@@ -11,3 +11,7 @@ We then convert the outputted CSV file into a form that the centipede can 'read'
 Specifically, csv2motor.py takes the CSV file and compiles a row vector (n x 1) 
 Here n represents the number of notes played in a given piece in chronological order
 Each row of the vector has a specific format: the moment in time that the note should be played, the note itself, the attack of the finger, and the release
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Things to fix:
+1. create paths that route folders which contain MIDI or CSV files through the programs described above
+2. If you are attempting to run the programs use python 2.7 and not 3.x

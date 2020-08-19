@@ -1,4 +1,5 @@
 import csv
+import operator
 f = [[0, 0, 0, 0]]
 note_on = []
 mt = [[0,0]]
@@ -56,7 +57,7 @@ def instructions (midi_time, motor, attack, epsilon, tempo_start):
                     index_next += 1
                 if int(index1) != int(index2):
                     tb = float(dur)
-                    dur = (float(mt[index2][1]) - float(mt[index1][1])) * float(mt[index1][0]) + float(tb) #calculates the time between the last tempo start and the second to last tempo start
+                    dur = (float(mt[index2][1]) - float(mt[index1][1])) * float(mt[index1][0]) + float(tb) # calculates the time between the last tempo start and the second to last tempo start
                 tb = float(dur)
                 dur = (float(midi_time) - float(mt[index2][1])) * float(mt[index2][0]) + float(tb) # calculates the time between when the note is off and the tempo starts
                 note_on.remove(note_on[index])
@@ -74,10 +75,10 @@ with open('new chad.csv', 'r') as csv_file:
     for row in csv_file:
         indicies = list(filter(lambda x: row[x] == ',', range(len(row))))
         if ' Header' in row:
-            alpha = row[(indicies[4]+1):len(row)] #the number of clock pulses per quarter note
+            alpha = row[(indicies[4]+1):len(row)]
 
         elif ' Tempo' in row:
-            beta = row[(indicies[2]+1):len(row)] #tempo is specified as the number of microseconds per quarter note
+            beta = row[(indicies[2]+1):len(row)]
             beta1 = int(beta) / 1000000. #the number of seconds per quarter note
             epsilon = float(beta1) / float(alpha) #how long each clock pulse is, in seconds
             tempo_start = row[(indicies[0] + 1):indicies[1]]
@@ -87,7 +88,6 @@ with open('new chad.csv', 'r') as csv_file:
             motor = row[(indicies[3] + 1):indicies[4]]
             midi_time = row[(indicies[0] + 1):indicies[1]]
             attack = row[(indicies[4] + 1):len(row)]
-            #attack = row[(indicies[4] + 1):indicies[5]]
 
             instructions(midi_time, motor, attack, epsilon, tempo_start)
 
@@ -116,5 +116,10 @@ for row in f:
     if 'tempo' not in row:
         g.append(row)
 
-def call():
-    return g
+with open('ready liz_et3.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for row in g:
+        writer.writerow(row)
+
+# for i in g:
+#     print i

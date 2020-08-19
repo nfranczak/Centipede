@@ -1,6 +1,13 @@
-Part I deals with converting music into a form which the centipede can read and learn to play from. First we take a MIDI file
-and convert it into CSV format. Because the CSV file contains a bunch of useless information
-the manipulating_csv.py program cleans the CSV file. The csv2motor.py program takes then takes the CSV file and compiles a
-matrix of the form n x 1, where n represents the number of notes played in a given piece in chronological order. Each row of
-the matrix has a specific format: the moment in time that the note should be played, the note itself, the attack of the finger,
-and the release. 
+Part I deals with converting music into a form which the centipede can read and learn to play from
+
+First we take a MIDI file (e.g. liz_et3.mid) and input it into midi2csv.py
+        liz_et3.mid --> midi2csv.py --> liz copy.csv
+        
+Because the outputted CSV file contains a bunch of useless information we clean it with manipulating_csv.py
+        liz copy.csv --> manipulating_csv.py --> new liz copy.csv
+        
+We then convert the outputted CSV file into a form that the centipede can 'read'
+        new liz copy.csv --> csv2motor.py --> ready liz_et3.csv
+Specifically, csv2motor.py takes the CSV file and compiles a row vector (n x 1) 
+Here n represents the number of notes played in a given piece in chronological order
+Each row of the vector has a specific format: the moment in time that the note should be played, the note itself, the attack of the finger, and the release

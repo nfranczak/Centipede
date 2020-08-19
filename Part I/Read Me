@@ -14,4 +14,4 @@ Each row of the vector has a specific format: the moment in time that the note s
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Things to fix:
 1. create paths that route folders which contain MIDI or CSV files through the programs described above
-2. If you are attempting to run the programs use python 2.7 and not 3.x
+2. Programs run on python 2.7 and not 3.x

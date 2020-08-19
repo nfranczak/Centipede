@@ -1,21 +1,39 @@
-Part II contains all the relevant code to 'contact' the centipede and feed it inputs given from csv2motor.py, along with a
-model that is able to interpret the inputs and output the appropriate motor velocity and stall.
-The intuition for the model is as follows. 
+Currently, part II contains code that trains the centipede
+A CSV file of csv2motor.py gets fed into finger.py
+
+First the model checks if the given (note, attack, release) pair have already been approximated by the model with the lookup.py program
+
+If not the model predicts a value for the corresponding motor's velocity and stall
+* velocity corresponds to the attack *
+* stall corresponds to the release *
+The predicted (velcoity, stall) get fed to the centipede with the ardu_comm.py program
+At the same time the audyoo.py program is ran
+The audyoo.py program records the attack and release that the velocity and stall produced
+The loss is calculated between the produced (attack, release) and the desired (attack, release)
+Until the loss is below a certain threshold the model keeps predicting (velocity, stall) values
+Once the loss is below the threshold, the (velocity, stall, motor) values get added to a database with adder.py
+
+visulizer.py can show the contents of the database in R3
+-------------------------------------------------------------------------------------------------------------------------------
+A general intuition for the code described above
 Let a be a function such that a: attack -> velocity
 Let b         ''              b: release -> stall
 we then can say that:
 c: (attack x release) -> (velocity x stall)
 &
 d: (note x attack x release) -> (motor x velcity x stall)
--------------------------------------------------------------------------------------------------------------------------------
+
 Input: (attack, release, note)
 Training loop:
         nn produces:(vel, stall, motor) 
-       (vel, stall) fed into arduino and executed by the chosen servo motor
+       (vel, stall) fed into arduino and executed by the chosen  motor
         produced soundwave is redorded for amplitude and duration
         loss is measured
         nn refines itself
         
-until the loss is below a certain thershold, lines 13-17 repeat.
+until the loss is below a certain thershold, lines 27-32 repeat
 once the threshold is met, the (attack, release, note) is then added to an R3 graph, &
-                           the (velocity, stall, motor)    ''           a different R3 graph.
+                           the (velocity, stall, motor)    ''           a different R3 graph
+-------------------------------------------------------------------------------------------------------------------------------
+PLEASE NOTE PART II IS STILL IN THE WORKS
+expected completion date: late november 2020

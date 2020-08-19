@@ -14,7 +14,7 @@ Each row of the vector has a specific format: the moment in time that the note s
 
 attack: how loud the note is in decibels
 release: how long the note is in seconds
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Things to fix:
 1. create paths that route folders which contain MIDI or CSV files through the programs described above
 2. Programs run on python 2.7 and not 3.x

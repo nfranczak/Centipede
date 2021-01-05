@@ -1,4 +1,5 @@
 # Bryce: An 88-fingered centipede programmed to play the piano.
+
 I believe that before semi-intelligent robots become a ubiquitous household item humans will first have to feel comfortable
 enough to have them living with them. To accelerate this feeling of acceptance a possible solution is to have robotics
 viewed as art. I hope that the completion of this centipede allows my audience to see the general utility that robots can

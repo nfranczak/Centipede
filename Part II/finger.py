@@ -26,7 +26,7 @@ for i in csv2motor.call():
 
     while on == True:
         if lookup.look() == True:
-            pass #make sure pass is working as exepected here
+            pass
         else:
             with tf.GradientTape() as g:
                  loss = model(attack, a, release, r)

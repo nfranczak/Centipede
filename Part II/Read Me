@@ -34,5 +34,5 @@ Training loop:
 until the loss is below a certain thershold, lines 28-32 repeat
 once the threshold is met, the (attack, release, note) is then added to an R3 graph, &
                            the (velocity, stall, motor)    ''           a different R3 graph
--------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 PLEASE NOTE PART II IS STILL IN THE WORKS

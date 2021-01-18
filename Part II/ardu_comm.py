@@ -11,11 +11,11 @@ pos = 0
 # y controls how long the servo is in this position
 # z controls how fast the servo goes back up
 def call (x, y, z):
-    for pos in range(135, 65, -1):
+    for pos in range(120, 65, -1):
         servo.write(pos)
         sleep(x)
     sleep(y)
-    for pos in range(65, 135):
+    for pos in range(65, 120):
         servo.write(pos)
         sleep(z)
 # NOTE: the code below is used to create a practice trill to test how many times a key can be pressed in a second

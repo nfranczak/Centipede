@@ -1,5 +1,4 @@
-# get rid of useless imports
-# os remove wav files when done
+# THIS PROGRAM GIVES BACK DECIBELS AND SECONDS ACCORDING TO AUX OUT NOT MIDI
 import pyaudio
 import wave
 import numpy

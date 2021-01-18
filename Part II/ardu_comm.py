@@ -1,5 +1,5 @@
 from pyfirmata import Arduino
-from time import sleep # this is in seconds FYI not milli seconds
+from time import sleep # this is in seconds NOT milliseconds
 #ALWAYS CONNECT ARDU TO BOTTOM USB PORT
 board = Arduino('/dev/cu.usbmodem14101')
 servo = board.get_pin('d:9:s')

@@ -14,9 +14,11 @@ pos = 0
 # the fun is figuring out what those 55 values should be for each attack and release :)
 def call (x, y, z):
     for pos in range(120, 65, -1):
-        servo.write(pos)
-        sleep(x)
+        for i in x:
+            servo.write(pos)
+            sleep(i)
     sleep(y)
     for pos in range(65, 120):
-        servo.write(pos)
-        sleep(z)
+        for j in z:
+            servo.write(pos)
+            sleep(j)

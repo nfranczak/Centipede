@@ -10,6 +10,8 @@ pos = 0
 # x controls how fast the servo descends downwards
 # y controls how long the servo is in this position
 # z controls how fast the servo goes back up
+# NOTE: x and z are arrays that contain 55 unique values
+# the fun is figuring out what those 55 values should be for each attack and release :)
 def call (x, y, z):
     for pos in range(120, 65, -1):
         servo.write(pos)
@@ -18,21 +20,3 @@ def call (x, y, z):
     for pos in range(65, 120):
         servo.write(pos)
         sleep(z)
-# NOTE: the code below is used to create a practice trill to test how many times a key can be pressed in a second
-# The answer is ~8 which should be suffice
-# NOTE: there is a .mov in the design section showing the trill
-# if __name__ == "__main__":
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)
-    # sleep(.01)
-    # call(.000483, .025, .000483)

@@ -14,25 +14,4 @@ Until the loss is below a certain threshold the model keeps predicting (velocity
 Once the loss is below the threshold, the (velocity, stall, motor) values get added to a database with adder.py
 
 visulizer.py can show the contents of the database in R3
--------------------------------------------------------------------------------------------------------------------------------
-A general intuition for the code described above
-Let a be a function such that a: attack -> velocity
-Let b         ''              b: release -> stall
-we then can say that:
-c: (attack x release) -> (velocity x stall)
-&
-d: (note x attack x release) -> (motor x velcity x stall)
 
-Input: (attack, release, note)
-Training loop:
-        nn produces:(vel, stall, motor) 
-       (vel, stall) fed into arduino and executed by the chosen  motor
-        produced soundwave is redorded for amplitude and duration
-        loss is measured
-        nn refines itself
-        
-until the loss is below a certain thershold, lines 28-32 repeat
-once the threshold is met, the (attack, release, note) is then added to an R3 graph, &
-                           the (velocity, stall, motor)    ''           a different R3 graph
-------------------------------------------------------------------------------------------------------------------------
-PLEASE NOTE PART II IS STILL IN THE WORKS
